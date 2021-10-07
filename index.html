@@ -1,0 +1,99 @@
+<html>
+<head>
+        <style>
+                button{
+                      height:250px;
+                      width:350px;
+                 }
+                 .show{
+                     height: min-content;
+                      width: min-content;
+                       font-size: small;
+                  }
+                  .reset{
+                      height: min-content;
+                      width: min-content;
+                      font-size: small;
+                   }
+                </style>
+        <title>Card Game</title>
+        <script src=”https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js”></script>
+</head>
+<body>
+        <center>
+                  <p id=”cap1”>The Card Game<button class=”reset”>reset</button></p>
+                   <p id=”cap2”>Player1:Player2:</p>
+                    <p id=”cap3”></p>
+         </center>
+          <div align=”left” style=”float:left;  width:50%;”>
+               <button class=”show” id=”show1”>Show all Cards</button>
+          <table>
+               <tr>
+                         <td><button id=”1”></button></td>
+                </tr>
+                <tr>
+                          <td><button id=”2”></button></td>
+                </tr>
+                 <tr>
+                           <td><button id=”3”></button><td>
+                 </tr>
+             </table>
+          </div>
+          <div align=”right” style=”float:right;  width:50%;”>
+               <button class=”show” id=”showr”>Show all Cards</button>
+                <table>
+                    <tr>
+                         <td><button id=”4”></button></td>
+                     </tr>
+                      <tr>
+                          <td><button id=”5”></button></td>
+                      </tr>
+                       <tr>
+                           <td><button id=”6”></button><td>
+                     </tr>
+                </table>
+              </div>
+      <script>
+           var sum1=0;
+           var sumr=0;
+           var flag_check=0;
+               $(“.reset”).click(function(){
+                      location.reload(true);
+                });
+               $(“#show1”).click(function(){
+                       $(“#1,#2,#3”).each(function(){
+                          Var x= Math.floor(Math.random()*3)+1;
+                              if(x==1){
+                                      sum1+=5;
+                                }
+                              if(x==2){
+                                       sum1+=10;
+                                }
+                               if(x==3){
+                                     sum1+=15;
+                               }
+                               $(this).html(“<img src”+x+”img.png”>”);
+                               $(this).attr(“disabled”,”disabled”);
+                       });
+                       $(this).attr(“disabled”,”disabled”);
+                       $(“#cap2”).text(“Player1:”+sum1+”\tPlayer2:”+sumr);
+                               flag_check++;
+                               check();
+                         });
+                      function check(){
+                               if(flag_check==2 && sum1>sumr){
+                                       $(“#cap3”).text(“Player 1 WON!!!”);
+                                }
+                               else if(flag_check==2 && sum1<sumr){
+                                        $(“#cap3”).text(“Player @ WON!!!”);
+                               }
+                               else if(flag_check==2 && sum1==sumr){
+                                   $(“#cap3”).text(“DRAW!!!”);
+                               }
+                     }
+</script>
+</body>
+</html> 
+             
+
+
